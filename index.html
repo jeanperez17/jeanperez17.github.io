@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Temperatura y Conversiones</title>
+    <style>
+        #resultados {
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div class="px-4 py-2 my-2 text-center border-bottom">      
+        <img class="d-block mx-auto mb-2" src="LOGO.png" alt="" width="30%"  height="30%">
+        <h1 class="display-5 fw-bold">Conversiones</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-0">Conversiones de Celsius a Fahrenheit y de Kilogramos a Libras y Onzas</p>
+            <p class="lead mb-0">Programado por Jean Franco</p>
+        </div>
+    </div>
+
+    <div class="b-example-divider"></div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 col-md-4 offset-md-4">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label" for="celsius">Grados Celsius: <samp id="lbl-celsius">0</samp></label>
+                        <input class="form-range" type="range" min="-200" max="200" id="celsius" oninput="cambiarCelsius();">
+                        <div class="form-text">Desliza para cambiar el valor de los Celsius</div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Resultado:</label>
+                        <div id="resultado-celsius">
+                            0 grados Celsius
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="kilogramos">Kilogramos: <samp id="lbl-kilogramos">0</samp></label>
+                        <input class="form-range" type="range" min="1" max="500" id="kilogramos" oninput="cambiarKilogramos();">
+                        <div class="form-text">Desliza para cambiar el valor de los Kilogramos</div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Resultados:</label>
+                        <div id="resultado-kilogramos">
+                            0 kilogramos
+                        </div>
+                        <div id="resultado-libras">
+                            0 kilogramos son 0 libras
+                        </div>
+                        <div id="resultado-onzas">
+                            0 kilogramos son 0 onzas
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="b-example-divider mb-0"></div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    function cambiarCelsius() {
+        var celsius = document.getElementById("celsius").value;
+        document.getElementById("lbl-celsius").innerHTML = celsius;
+        document.getElementById("resultado-celsius").innerHTML = celsius + " grados Celsius";
+    }
+
+    function cambiarKilogramos() {
+        var kilogramos = document.getElementById("kilogramos").value;
+        document.getElementById("lbl-kilogramos").innerHTML = kilogramos;
+
+        document.getElementById("resultado-kilogramos").innerHTML = kilogramos + " kilogramos";
+        document.getElementById("resultado-libras").innerHTML = kilogramos + " kilogramos son " + (kilogramos * 2.20462).toFixed(2) + " libras";
+        document.getElementById("resultado-onzas").innerHTML = kilogramos + " kilogramos son " + (kilogramos * 35.274).toFixed(2) + " onzas";
+    }
+</script>
+</body>
+</html>
